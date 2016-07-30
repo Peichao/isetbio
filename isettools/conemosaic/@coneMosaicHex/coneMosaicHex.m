@@ -25,7 +25,9 @@ classdef coneMosaicHex < coneMosaic
         patternOriginatingRectGrid              % cone pattern of the originating rect grid
         patternSampleSizeOriginatingRectGrid    % pattern sample size of the originating rect grid
         fovOriginatingRectGrid                  % FOV of the originating rect grid
+        useStatsToolboxPdist2                   % whether to use the Stats-based pdist2 function
     end
+    
     
     % Public methods
     methods
@@ -48,6 +50,7 @@ classdef coneMosaicHex < coneMosaic
             obj.resamplingFactor = p.Results.resamplingFactor;
             
             % Generate sampled hex grid
+            obj.useStatsToolboxPdist2 = false;
             obj.resampleGrid(obj.resamplingFactor);
         end
         

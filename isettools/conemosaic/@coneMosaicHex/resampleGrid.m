@@ -70,8 +70,7 @@ function pattern = rectSampledHexPattern(obj)
     % Generate the high res mosaic pattern
     pattern = zeros(numel(yRectHiRes), numel(xRectHiRes))+1; 
     
-    useStatsToolboxPdist2 = false;
-    if (useStatsToolboxPdist2)
+    if (obj.useStatsToolboxPdist2)
         % Determine the closest cone type in the originating  grid
         [~,I1] = pdist2([xxx(:) yyy(:)], obj.coneLocsHexGrid, 'euclidean', 'Smallest', 1);
 
