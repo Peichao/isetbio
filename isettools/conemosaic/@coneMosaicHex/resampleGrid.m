@@ -70,13 +70,22 @@ function pattern = rectSampledHexPattern(obj)
     % Generate the high res mosaic pattern
     pattern = zeros(numel(yRectHiRes), numel(xRectHiRes))+1; 
     
-    % Determine the closest cone type in the originating  grid
-    [~,I] = pdist2([xxx(:) yyy(:)], obj.coneLocsHexGrid, 'euclidean', 'Smallest', 1);
+    useStatsToolboxPdist2 = false;
+    if (useStatsToolboxPdist2)
+        % Determine the closest cone type in the originating  grid
+        [~,I1] = pdist2([xxx(:) yyy(:)], obj.coneLocsHexGrid, 'euclidean', 'Smallest', 1);
+
+        % Determine the closest cone location in the high-res grid
+        [~,II1] = pdist2([xx(:) yy(:)], obj.coneLocsHexGrid, 'euclidean', 'Smallest', 1);
+    else
+        % Determine the closest cone type in the originating  grid
+        [~, I] = pdist2smallest( [xxx(:) yyy(:)], obj.coneLocsHexGrid );
+        
+        % Determine the closest cone location in the high-res grid
+        [~, II] = pdist2smallest( [xx(:) yy(:)], obj.coneLocsHexGrid);
+    end
     
-    % Determine the closest cone location in the high-res grid
-    [~,II] = pdist2([xx(:) yy(:)], obj.coneLocsHexGrid, 'euclidean', 'Smallest', 1);
-    
-    % That's our cone !
+    % These are the cones that must be made active !
     pattern(ind2sub(size(obj.pattern),II)) = obj.patternOriginatingRectGrid(I);
     fprintf('Done !\n');
     

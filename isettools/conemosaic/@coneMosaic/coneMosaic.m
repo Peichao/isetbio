@@ -16,8 +16,8 @@ classdef coneMosaic < hiddenHandle
         macular;            % Macular class object
         os;                 % Outersegment properties
         
-        pattern;            % Pattern of K-LMS cones in the mosaick
-        patternSampleSize;
+        pattern;            % Pattern of K-LMS cones in the mosaic
+        patternSampleSize;  % Separation between cones
         integrationTime;    % Cone temporal integration time in secs
         emPositions;        % Eye movement positions in number of cones.
                             % The length of this property controls number of

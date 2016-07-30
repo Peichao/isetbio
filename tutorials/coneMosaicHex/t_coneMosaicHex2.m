@@ -2,7 +2,7 @@
 %
 % Visualizes the effects of different resampling factors. 
 % A resampling factor value of 1 gives a rectangular grid.
-% A resampling factor of 2 gives pretty bad artifacts with largevinhomogenities.
+% A resampling factor of 2 gives pretty bad artifacts with large inhomogenities.
 % As the resampling factor is increased beyond 2, inhomogeneities start to 
 % disappear and the generated grid approximates a perfect hex grid.
 %
