@@ -5,7 +5,7 @@ function t_pdist2smallest
 
     mDims = 2;
     nXPoints = 10;
-    X = rand(xXpoints,mDims);
+    X = rand(nXPoints,mDims);
     nYPoints = 3;
     Y = rand(nYPoints,mDims);
     
