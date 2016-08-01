@@ -17,7 +17,9 @@ classdef coneMosaic < hiddenHandle
         os;                 % Outersegment properties
         
         pattern;            % Pattern of K-LMS cones in the mosaic
-        patternSampleSize;  % Separation between cones
+        patternSampleSize;  % Separation between cones; for rectangular grid mosaics, this is the actual cone separation;
+                            % For hexagonal grid mosaics (coneMosaicHex class), this is the separation between the samples 
+                            % over which the hex grid is sampled 
         integrationTime;    % Cone temporal integration time in secs
         emPositions;        % Eye movement positions in number of cones.
                             % The length of this property controls number of
